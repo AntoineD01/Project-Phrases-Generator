@@ -152,30 +152,6 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\TD1.dir\build.make CMakeFiles/TD1.dir/main.c.s
 .PHONY : main.c.s
 
-product.obj: product.c.obj
-.PHONY : product.obj
-
-# target to build an object file
-product.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TD1.dir\build.make CMakeFiles/TD1.dir/product.c.obj
-.PHONY : product.c.obj
-
-product.i: product.c.i
-.PHONY : product.i
-
-# target to preprocess a source file
-product.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TD1.dir\build.make CMakeFiles/TD1.dir/product.c.i
-.PHONY : product.c.i
-
-product.s: product.c.s
-.PHONY : product.s
-
-# target to generate assembly for a file
-product.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\TD1.dir\build.make CMakeFiles/TD1.dir/product.c.s
-.PHONY : product.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -188,9 +164,6 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... product.obj
-	@echo ... product.i
-	@echo ... product.s
 .PHONY : help
 
 

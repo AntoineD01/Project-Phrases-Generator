@@ -79,12 +79,6 @@
 		<Unit filename="C:/Users/Antoine Dupont/CLionProjects/!L2/Project-Phrases-Generator/main.c">
 			<Option target="TD1"/>
 		</Unit>
-		<Unit filename="C:/Users/Antoine Dupont/CLionProjects/!L2/Project-Phrases-Generator/product.c">
-			<Option target="TD1"/>
-		</Unit>
-		<Unit filename="C:/Users/Antoine Dupont/CLionProjects/!L2/Project-Phrases-Generator/product.h">
-			<Option target="TD1"/>
-		</Unit>
 		<Unit filename="C:/Users/Antoine Dupont/CLionProjects/!L2/Project-Phrases-Generator/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

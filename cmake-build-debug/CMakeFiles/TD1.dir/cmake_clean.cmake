@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TD1.dir/main.c.obj"
   "CMakeFiles/TD1.dir/main.c.obj.d"
-  "CMakeFiles/TD1.dir/product.c.obj"
-  "CMakeFiles/TD1.dir/product.c.obj.d"
   "TD1.exe"
   "TD1.exe.manifest"
   "TD1.pdb"
