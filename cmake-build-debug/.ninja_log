@@ -1,3 +1,5 @@
 # ninja log v5
 0	260	6880418535855034	CMakeFiles/Project_Phrases_Generator.dir/main.c.obj	c179890c066f61b3
 263	504	6880418537955695	Project_Phrases_Generator.exe	3d698022bcc93c92
+2	113	6880419491805066	CMakeFiles/Project_Phrases_Generator.dir/main.c.obj	c179890c066f61b3
+113	258	6880419493177208	Project_Phrases_Generator.exe	3d698022bcc93c92
