@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "TD1.exe"
+			"path" : "Project_Phrases_Generator.exe"
 		},
 		{
-			"path" : "TD1.pdb"
+			"path" : "Project_Phrases_Generator.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -59,7 +59,7 @@
 			]
 		}
 	],
-	"id" : "TD1::@6890427a1f51a3e7e1df",
+	"id" : "Project_Phrases_Generator::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -79,8 +79,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "TD1",
-	"nameOnDisk" : "TD1.exe",
+	"name" : "Project_Phrases_Generator",
+	"nameOnDisk" : "Project_Phrases_Generator.exe",
 	"paths" : 
 	{
 		"build" : ".",
