@@ -1,0 +1,3 @@
+C:/Users/Antoine Dupont/CLionProjects/!L2/Project-Phrases-Generator/cmake-build-debug/CMakeFiles/TD1.dir
+C:/Users/Antoine Dupont/CLionProjects/!L2/Project-Phrases-Generator/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Antoine Dupont/CLionProjects/!L2/Project-Phrases-Generator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
