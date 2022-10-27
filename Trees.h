@@ -9,7 +9,7 @@ struct s_node
 {
     char letter;
     struct s_node *left, *right;
-    struct s_node *variations;
+    struct s_node *variations; //Ne pas stocker dans l'arbre
 };
 
 typedef struct s_node t_node, *p_node;
