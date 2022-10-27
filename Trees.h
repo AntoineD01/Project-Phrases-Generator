@@ -5,4 +5,19 @@
 #ifndef PROJECT_PHRASES_GENERATOR_TREES_H
 #define PROJECT_PHRASES_GENERATOR_TREES_H
 
+struct s_node
+{
+    char letter;
+    struct s_node *left, *right;
+    struct s_node *variations;
+};
+
+typedef struct s_node t_node, *p_node;
+
+
+typedef struct s_tree
+{
+    p_node root;
+} t_tree, *p_tree;
+
 #endif //PROJECT_PHRASES_GENERATOR_TREES_H
