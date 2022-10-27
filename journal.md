@@ -3,7 +3,7 @@ Groupe 8:
   - Antoine DUPONT
   - Enzo IHADJADENE
   - Arthur VERCHER
- dépôt :
+dépôt :
   - https://github.com/AntoineD01/Project-Phrases-Generator.git
 ---
 
