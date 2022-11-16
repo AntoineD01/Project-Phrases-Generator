@@ -1,23 +1,31 @@
 //
-// Created by Antoine Dupont on 27/10/2022.
+// Created by Antoine Dupont on 29/10/2022.
 //
 
-#ifndef PROJECT_PHRASES_GENERATOR_TREES_H
-#define PROJECT_PHRASES_GENERATOR_TREES_H
+#ifndef TEST_PROJET_TREES_H
+#define TEST_PROJET_TREES_H
 
-struct s_node
+#include "functions.h"
+#include "stdlib.h"
+
+typedef struct s_node
 {
     char letter;
-    struct s_node *left, *right;
-    struct s_node *variations; //Ne pas stocker dans l'arbre
-};
-
-typedef struct s_node t_node, *p_node;
-
+    struct s_node* f_letters[26];
+    flexed* f;
+}t_node;
 
 typedef struct s_tree
 {
-    p_node root;
-} t_tree, *p_tree;
+    t_node* root;
+}t_tree;
 
-#endif //PROJECT_PHRASES_GENERATOR_TREES_H
+
+int empty_spot(t_node);
+t_node* new_values(char, t_tree*, t_node*);
+void display_node(t_node);
+void information(t_node*,word);
+t_node* research(word A,t_tree t);
+void forme_flechi(word A, t_node* n);
+
+#endif //TEST_PROJET_TREES_H
