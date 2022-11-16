@@ -4,6 +4,11 @@
 #include "Generator.h"
 
 int main () {
+    int answer;
+    do{
+        printf("Welcome to Random Word Generator !\nPress 1 to create the Tree.\n");
+        scanf("%d",&answer);
+    }while(answer != 1);
     FILE *fp;
     char str[5000];
     char type[100];
@@ -86,21 +91,21 @@ int main () {
                     if (i==0) //First letter of the word
                     {
                         tempN = new_values(A.content[i], &Noun, &firstN);
-                        //display_node(*tempN);
+                        display_node(*tempN);
                     }
                     else
                     {
                         if(i==size) //Last letter of the word
                         {
                             tempN = new_values(A.content[i], &Noun, tempN);
-                            //display_node(*tempN);
+                            display_node(*tempN);
                             information(tempN, A);
-                            //printf("genre = %d\nnombre = %d\n\n",tempN->f->himself->genre,tempN->f->himself->nombre);
+                            printf("genre = %d\nnombre = %d\n\n",tempN->f->himself->genre,tempN->f->himself->nombre);
                         }
                         else //Letters of the word
                         {
                             tempN = new_values(A.content[i], &Noun, tempN);
-                            //display_node(*tempN);
+                            display_node(*tempN);
                         }
                     }
                 }
@@ -115,21 +120,21 @@ int main () {
                         if (i==0)
                         {
                             tempV = new_values(A.content[i], &Verb, &firstV);
-                            //display_node(*tempV);
+                            display_node(*tempV);
                         }
                         else
                         {
                             if(i==size)
                             {
                                 tempV = new_values(A.content[i], &Verb, tempV);
-                                //display_node(*tempV);
+                                display_node(*tempV);
                                 information(tempV, A);
-                                //printf("temps = %d\n\n",tempV->f->himself->temps,tempV->f->himself->personne, tempV->f->himself->nombre);
+                                printf("temps = %d\n\n",tempV->f->himself->temps,tempV->f->himself->personne, tempV->f->himself->nombre);
                             }
                             else
                             {
                                 tempV = new_values(A.content[i], &Verb, tempV);
-                                //display_node(*tempV);
+                                display_node(*tempV);
                             }
 
 
@@ -146,21 +151,21 @@ int main () {
                             if (i==0)
                             {
                                 tempA = new_values(A.content[i], &Adj, &firstA);
-                                //display_node(*tempA);
+                                display_node(*tempA);
                             }
                             else
                             {
                                 if(i==size)
                                 {
                                     tempA = new_values(A.content[i], &Adj, tempA);
-                                    //display_node(*tempA);
+                                    display_node(*tempA);
                                     information(tempA, A);
-                                    //printf("genre = %d\nnombre = %d\n\n",tempA->f->himself->genre,tempA->f->himself->nombre);
+                                    printf("genre = %d\nnombre = %d\n\n",tempA->f->himself->genre,tempA->f->himself->nombre);
                                 }
                                 else
                                 {
                                     tempA = new_values(A.content[i], &Adj, tempA);
-                                    //display_node(*tempA);
+                                    display_node(*tempA);
                                 }
 
                             }
@@ -176,21 +181,21 @@ int main () {
                                 if (i==0)
                                 {
                                     tempAv = new_values(A.content[i], &Adv, &firstAv);
-                                    //display_node(*tempAv);
+                                    display_node(*tempAv);
                                 }
                                 else
                                 {
                                     if(i==size)
                                     {
                                         tempAv = new_values(A.content[i], &Adv, tempAv);
-                                        //display_node(*tempAv);
+                                        display_node(*tempAv);
                                         information(tempAv, A);
-                                        //printf("nombre = %d\n\n",tempAv->f->himself->nombre);
+                                        printf("nombre = %d\n\n",tempAv->f->himself->nombre);
                                     }
                                     else
                                     {
                                         tempAv = new_values(A.content[i], &Adv, tempAv);
-                                        //display_node(*tempAv);
+                                        display_node(*tempAv);
                                     }
 
                                 }
@@ -210,15 +215,15 @@ int main () {
         }
         else
         {
-            printf("\nWord : %s Base : %s\n",A.content,A.base_word);
+            printf("The word : %s is a flexed form of %s.\n",A.content,A.base_word);
             if (A.nature == 1)
             {
                 t_node* ptr = NULL;
                 ptr = research(A,Noun);
                 if (ptr != NULL)
                 {
-                    printf("%c\n",ptr->letter);
-                    forme_flechi(A,ptr);
+                    //printf("%c\n",ptr->letter);
+                    //forme_flechi(A,ptr);
                 }
             }
             else
@@ -230,7 +235,8 @@ int main () {
                     ptr = research(A,Verb);
                     if (ptr != NULL)
                     {
-                        printf("%c\n",ptr->letter);
+                        //printf("%c\n",ptr->letter);
+                        //forme_flechi(A,ptr);
                     }
                 }
                 else
@@ -241,7 +247,8 @@ int main () {
                         ptr = research(A,Adj);
                         if (ptr != NULL)
                         {
-                            printf("%c\n",ptr->letter);
+                            //printf("%c\n",ptr->letter);
+                            //forme_flechi(A,ptr);
                         }
                     }
                     else
@@ -250,8 +257,8 @@ int main () {
                         ptr = research(A,Adv);
                         if (ptr != NULL)
                         {
-                            printf("%c",ptr->letter);
-
+                            //printf("%c",ptr->letter);
+                            //forme_flechi(A,ptr);
                         }
                     }
                 }
@@ -261,6 +268,8 @@ int main () {
 
     fclose(fp); // Close the file
 
+    generator(Noun,Verb, Adj, Adv,0);
+    //menu(Noun,Verb, Adj, Adv);
 
 
     return 0;
