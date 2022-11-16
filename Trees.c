@@ -1,11 +1,9 @@
 //
-// Created by Antoine Dupont on 27/10/2022.
+// Created by Antoine Dupont on 29/10/2022.
 //
-
 #include "Trees.h"
 
-
-t_node* new_values(char letter, t_tree *Tree, t_node* leaf) //function that add a node to the tree 
+t_node* new_values(char letter, t_tree *Tree, t_node* leaf)
 {
     t_node* n_node;
     n_node = malloc(sizeof(t_node));
@@ -55,7 +53,7 @@ t_node* new_values(char letter, t_tree *Tree, t_node* leaf) //function that add 
 }
 
 
-void display_node(t_node n) //function  that displays the node
+void display_node(t_node n)
 {
     printf("The letter in this node is %c and have %d child.\n\n",n.letter, empty_spot(n));
     for (int i=0; i< empty_spot(n); i++)
@@ -75,7 +73,7 @@ int empty_spot(t_node n) //Find the first empty spot in the pointer spot
     return i;
 }
 
-void information(t_node* n, word A) //gives infotmations about the words (plural/singular, feminine /masculine, temps...)
+void information(t_node* n, word A)
 {
     word* infos= malloc(sizeof(word));
     flexed* fle = malloc(sizeof(flexed));
@@ -116,7 +114,7 @@ void information(t_node* n, word A) //gives infotmations about the words (plural
     }
 }
 
-t_node* research(word A,t_tree t) // function that serarches if the word is in the tree
+t_node* research(word A,t_tree t)
 {
     t_node* temp;
     temp = malloc(sizeof(t_node));
@@ -148,63 +146,27 @@ t_node* research(word A,t_tree t) // function that serarches if the word is in t
 
     if (ctr == strlen(A.base_word))
     {
-        printf("We've found the word.\n");
+        printf("This word is in the tree.\n\n");
         return temp;
     }
     else
     {
-        printf("We've not found the word.\n");
+        printf("This word is not in the tree.\n\n");
         return NULL;
     }
 }
 
 void forme_flechi(word A, t_node* n) //TO BE DONE
 {
-    word* infos= malloc(sizeof(word));
-    flexed* fle = malloc(sizeof(flexed));
-    infos->nature = A.nature;
-    if (infos->nature == 1 || infos->nature == 3) //Nom and Adjectif
+    int index=0;
+    if(n->f->f_flechie[index] == NULL)
     {
-        infos->genre = A.genre;
-        infos->nombre = A.nombre;
-        int i;
-        for (i=0; i<50; i++)
-        {
-            if (fle->f_flechie[i] != NULL)
-            {
-                printf("The first empty spot is %d",i);
-                break;
-            }
-        }
-        fle->f_flechie[i] =
-        n->f = fle;
+        printf("%d",index);
+        index++;
     }
     else
     {
-        if(infos->nature == 2) //Verbe
-        {
-            infos->temps = A.temps;
-            fle->himself = infos;
-            n->f = fle;
-        }
-        else //Adverbe
-        {
-            if(infos->nature == 4)
-            {
-                infos->nombre = A.nombre;
-                fle->himself = infos;
-                n->f = fle;
-            }
-            else
-            {
-                if(infos->nature == -1)
-                {
-                    free(infos);
-                    free(fle);
-                    printf("Do nothing\n");
-                }
-            }
-        }
+        printf("The first empty spot is %d",index);
     }
 }
 
