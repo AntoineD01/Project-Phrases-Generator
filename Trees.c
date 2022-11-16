@@ -5,7 +5,7 @@
 #include "Trees.h"
 
 
-t_node* new_values(char letter, t_tree *Tree, t_node* leaf)
+t_node* new_values(char letter, t_tree *Tree, t_node* leaf) //function that add a node to the tree 
 {
     t_node* n_node;
     n_node = malloc(sizeof(t_node));
@@ -55,7 +55,7 @@ t_node* new_values(char letter, t_tree *Tree, t_node* leaf)
 }
 
 
-void display_node(t_node n)
+void display_node(t_node n) //function  that displays the node
 {
     printf("The letter in this node is %c and have %d child.\n\n",n.letter, empty_spot(n));
     for (int i=0; i< empty_spot(n); i++)
@@ -75,7 +75,7 @@ int empty_spot(t_node n) //Find the first empty spot in the pointer spot
     return i;
 }
 
-void information(t_node* n, word A)
+void information(t_node* n, word A) //gives infotmations about the words (plural/singular, feminine /masculine, temps...)
 {
     word* infos= malloc(sizeof(word));
     flexed* fle = malloc(sizeof(flexed));
@@ -116,7 +116,7 @@ void information(t_node* n, word A)
     }
 }
 
-t_node* research(word A,t_tree t)
+t_node* research(word A,t_tree t) // function that serarches if the word is in the tree
 {
     t_node* temp;
     temp = malloc(sizeof(t_node));
