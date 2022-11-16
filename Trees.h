@@ -8,19 +8,20 @@
 #include "functions.h"
 #include "stdlib.h"
 
-typedef struct s_node
+typedef struct s_node //structure du noeud 
 {
     char letter;
     struct s_node* f_letters[26];
     flexed* f;
 }t_node;
 
-typedef struct s_tree
+typedef struct s_tree //structure de l'arbre
 {
     t_node* root;
 }t_tree;
 
 
+//prototypes
 int empty_spot(t_node);
 t_node* new_values(char, t_tree*, t_node*);
 void display_node(t_node);
