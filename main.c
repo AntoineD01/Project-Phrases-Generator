@@ -13,6 +13,7 @@ int main () {
     char str[5000];
     char type[100];
 
+    //Initialisation of every variable needed
     t_tree Noun, Verb, Adj, Adv;
     t_node* tempN, *tempV, *tempA, *tempAv;
     t_node tempN1, tempV1, tempA1, tempAv1;
@@ -22,6 +23,7 @@ int main () {
     tempA = &tempA1;
     tempAv = &tempAv1;
 
+    //Initialisation of the root of every tree
     Noun.root = NULL;
     Verb.root = NULL;
     Adj.root = NULL;
@@ -34,9 +36,10 @@ int main () {
         return(-1); // test if the file is not empty or if there is any issue
     }
 
-    Noun.root = &firstN;
-    firstN.letter = 'N';
-    firstN.f_letters[0] = tempN;
+    //Initialisation of the first nodes of the tree NOUN
+    Noun.root = &firstN; //The root is equal to the first node
+    firstN.letter = 'N'; //The first node is 'N' because it is the noun tree
+    firstN.f_letters[0] = tempN; //The first child of the first node is initialized
     for (int i=0; i<26; i++)
     {
         firstN.f_letters[i] = NULL;
@@ -67,11 +70,12 @@ int main () {
     }
 
 
-    while (fgets (str, sizeof(str), fp)!=NULL) {
+    while (fgets (str, sizeof(str), fp)!=NULL) { //while we didn't reach the end of the file
         word A;
         sscanf(str,"%s\t%s\t%s",&A.content, &A.base_word, &type); //Put every information from the text in the right spot
         type_def(&A,type); // Define information from the previous line
 
+        //Initialize the child of the temporary variable to NULL
         for (int i=0; i<26; i++)
         {
             tempN->f_letters[i] = NULL;
@@ -79,18 +83,17 @@ int main () {
             tempA->f_letters[i] = NULL;
             tempAv->f_letters[i] = NULL;
         }
-        int size = strlen(A.content);
-        int ctr =  ctr_calculator(A);
+        int size = strlen(A.content); //Size of the word
+        int ctr =  ctr_calculator(A); //Look if the base_word and the word are the same
         if (ctr == size) // If the word is a base word
         {
             if (A.nature == 1) //Nom
             {
-
                 for (int i=0; i<size+1; i++)
                 {
                     if (i==0) //First letter of the word
                     {
-                        tempN = new_values(A.content[i], &Noun, &firstN);
+                        tempN = new_values(A.content[i], &Noun, &firstN); //Add the first letter as a child of firstN in the tree NOUN
                         display_node(*tempN);
                     }
                     else
@@ -99,8 +102,8 @@ int main () {
                         {
                             tempN = new_values(A.content[i], &Noun, tempN);
                             display_node(*tempN);
-                            information(tempN, A);
-                            printf("genre = %d\nnombre = %d\n\n",tempN->f->himself->genre,tempN->f->himself->nombre);
+                            information(tempN, A); //Add the information of the word that has just been added
+                            printf("Genre = %d and Nombre = %d\n\n",tempN->f->himself->genre,tempN->f->himself->nombre);
                         }
                         else //Letters of the word
                         {
@@ -109,7 +112,7 @@ int main () {
                         }
                     }
                 }
-                printf("%s has been added\n",A.content);
+                printf("%s has been added.\n\n",A.content);
             }
             else
             {
@@ -117,21 +120,21 @@ int main () {
                 {
                     for (int i=0; i<size+1; i++)
                     {
-                        if (i==0)
+                        if (i==0)//First letter of the word
                         {
                             tempV = new_values(A.content[i], &Verb, &firstV);
                             display_node(*tempV);
                         }
                         else
                         {
-                            if(i==size)
+                            if(i==size) //Last letter of the word
                             {
                                 tempV = new_values(A.content[i], &Verb, tempV);
                                 display_node(*tempV);
                                 information(tempV, A);
-                                printf("temps = %d\n\n",tempV->f->himself->temps,tempV->f->himself->personne, tempV->f->himself->nombre);
+                                printf("Temps = %d\n\n",tempV->f->himself->temps,tempV->f->himself->personne, tempV->f->himself->nombre);
                             }
-                            else
+                            else //Letters of the word
                             {
                                 tempV = new_values(A.content[i], &Verb, tempV);
                                 display_node(*tempV);
@@ -140,7 +143,7 @@ int main () {
 
                         }
                     }
-                    printf("%s has been added\n",A.content);
+                    printf("%s has been added.\n\n",A.content);
                 }
                 else
                 {
@@ -148,21 +151,21 @@ int main () {
                     {
                         for (int i=0; i<size+1; i++)
                         {
-                            if (i==0)
+                            if (i==0)//First letter of the word
                             {
                                 tempA = new_values(A.content[i], &Adj, &firstA);
                                 display_node(*tempA);
                             }
                             else
                             {
-                                if(i==size)
+                                if(i==size) //Last letter of the word
                                 {
                                     tempA = new_values(A.content[i], &Adj, tempA);
                                     display_node(*tempA);
                                     information(tempA, A);
                                     printf("genre = %d\nnombre = %d\n\n",tempA->f->himself->genre,tempA->f->himself->nombre);
                                 }
-                                else
+                                else //Letters of the word
                                 {
                                     tempA = new_values(A.content[i], &Adj, tempA);
                                     display_node(*tempA);
@@ -170,7 +173,7 @@ int main () {
 
                             }
                         }
-                        printf("%s has been added\n",A.content);
+                        printf("%s has been added.\n\n",A.content);
                     }
                     else
                     {
@@ -178,21 +181,21 @@ int main () {
                         {
                             for (int i=0; i<size+1; i++)
                             {
-                                if (i==0)
+                                if (i==0)//First letter of the word
                                 {
                                     tempAv = new_values(A.content[i], &Adv, &firstAv);
                                     display_node(*tempAv);
                                 }
                                 else
                                 {
-                                    if(i==size)
+                                    if(i==size) //Last letter of the word
                                     {
                                         tempAv = new_values(A.content[i], &Adv, tempAv);
                                         display_node(*tempAv);
                                         information(tempAv, A);
-                                        printf("nombre = %d\n\n",tempAv->f->himself->nombre);
+                                        printf("Nombre = %d.\n\n",tempAv->f->himself->nombre);
                                     }
-                                    else
+                                    else //Letters of the word
                                     {
                                         tempAv = new_values(A.content[i], &Adv, tempAv);
                                         display_node(*tempAv);
@@ -200,65 +203,65 @@ int main () {
 
                                 }
                             }
-                            printf("%s has been added\n",A.content);
+                            printf("%s has been added.\n\n",A.content);
                         }
                         else
                         {
-                            if(A.nature == -1)
+                            if(A.nature == -1) //The word is not either a Verb, a Noun, an Adverb or an Adjective
                             {
-                                printf("%s will not be added\n",A.content);
+                                printf("%s will not be added.\n\n",A.content);
                             }
                         }
                     }
                 }
             }
         }
-        else
+        else // If the word is not a base word
         {
             printf("The word : %s is a flexed form of %s.\n",A.content,A.base_word);
-            if (A.nature == 1)
+            if (A.nature == 1) //NOUN
             {
                 t_node* ptr = NULL;
-                ptr = research(A,Noun);
-                if (ptr != NULL)
+                ptr = research(A,Noun); //Look for the base word in the tree
+                if (ptr != NULL) //If the word is in the tree
                 {
-                    //printf("%c\n",ptr->letter);
-                    //forme_flechi(A,ptr);
+                    printf("The last letter of the base word of %s is %c.\n",A.content,ptr->letter);
+                    //Here was supposed to be added the flexed form
                 }
             }
             else
             {
-                if (A.nature == 2)
+                if (A.nature == 2) //VERB
                 {
 
                     t_node* ptr = NULL;
                     ptr = research(A,Verb);
                     if (ptr != NULL)
                     {
-                        //printf("%c\n",ptr->letter);
-                        //forme_flechi(A,ptr);
+                        printf("The last letter of the base word of %s is %c.\n",A.content,ptr->letter);
+                        //Here was supposed to be added the flexed form
                     }
                 }
                 else
                 {
-                    if (A.nature == 3)
+                    if (A.nature == 3) //ADJECTIVE
                     {
                         t_node* ptr = NULL;
                         ptr = research(A,Adj);
                         if (ptr != NULL)
                         {
-                            //printf("%c\n",ptr->letter);
-                            //forme_flechi(A,ptr);
+                            printf("The last letter of the base word of %s is %c.\n",A.content,ptr->letter);
+                            //Here was supposed to be added the flexed form
                         }
                     }
-                    else
+                    else //ADVERB
                     {
                         t_node* ptr = NULL;
                         ptr = research(A,Adv);
                         if (ptr != NULL)
                         {
-                            //printf("%c",ptr->letter);
-                            //forme_flechi(A,ptr);
+                            printf("The last letter of the base word of %s is %c\n",A.content,ptr->letter);
+                            //Here was supposed to be added the flexed form
                         }
                     }
                 }
@@ -268,8 +271,7 @@ int main () {
 
     fclose(fp); // Close the file
 
-    generator(Noun,Verb, Adj, Adv,0);
-    //menu(Noun,Verb, Adj, Adv);
+    menu(Noun,Verb, Adj, Adv); //Display the menu and make the program infinite
 
 
     return 0;
