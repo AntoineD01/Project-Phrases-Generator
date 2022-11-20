@@ -8,20 +8,19 @@
 #include "functions.h"
 #include "stdlib.h"
 
-typedef struct s_node //structure du noeud 
+typedef struct s_node
 {
-    char letter;
-    struct s_node* f_letters[26];
-    flexed* f;
+    char letter; //The letter of the node
+    struct s_node* f_letters[26]; // 26 pointers to the potential next values
+    flexed* f; //Informations about the word added and some flexed form (often NULL as not every letter are the end of a word)
 }t_node;
 
-typedef struct s_tree //structure de l'arbre
+typedef struct s_tree
 {
-    t_node* root;
+    t_node* root; //Pointer to the first node (always the type of word stored in it)
 }t_tree;
 
 
-//prototypes
 int empty_spot(t_node);
 t_node* new_values(char, t_tree*, t_node*);
 void display_node(t_node);
