@@ -10,19 +10,19 @@
 
 typedef struct
 {
-    char content[100];
-    char base_word[100];
-    int nature;
-    int genre;
-    int nombre;
-    int temps;
-    int personne;
+    char content[100]; //The word
+    char base_word[100]; //Its basic form
+    int nature; //The nature of the word
+    int genre; //The gender of the word
+    int nombre; //The number of the word
+    int temps; //The temps of the verb
+    int personne; //The person of the verb
 }word;
 
 typedef struct flexed
 {
-    word* himself;
-    word* f_flechie[50];
+    word* himself; //The information of the word actually in the tree
+    word* f_flechie[50]; //Flexed form of this word
 }flexed;
 
 int define_type(char type[]);
@@ -36,3 +36,4 @@ int ctr_calculator(word A);
 
 
 #endif //TEST_PROJET_FUNCTIONS_H
+
