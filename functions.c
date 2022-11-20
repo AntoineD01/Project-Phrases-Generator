@@ -5,7 +5,7 @@
 
 #include "functions.h"
 
-int define_type(char type[]) // 1 if Nom, 2 if Verbe, 3 if Adjectif, 4 if Adverbe
+int define_type(char type[]) // Define the nature of the word => 1 if Nom, 2 if Verb, 3 if Adjective, 4 if Adverb
 {
     if (type[0] == 'N')
     {
@@ -38,7 +38,7 @@ int define_type(char type[]) // 1 if Nom, 2 if Verbe, 3 if Adjectif, 4 if Adverb
     }
 }
 
-int define_genre(char type[]) // 1 if Masculin, 2 if Feminin, 3 if Invariable
+int define_genre(char type[]) // Define the gender of the word =>1 if Masculine, 2 if Feminine, 3 if Invariable
 {
     if (type[4] == 'M')
     {
@@ -64,7 +64,7 @@ int define_genre(char type[]) // 1 if Masculin, 2 if Feminin, 3 if Invariable
     }
 }
 
-int define_temps(char type[]) // 1 if présent de l’indicatif, 2 if imparfait de l’indicatif, 3 if présent du subjonctif, 4 if infinitif
+int define_temps(char type[]) // Define the time of the verb =>1 if présent de l’indicatif, 2 if imparfait de l’indicatif, 3 if présent du subjonctif, 4 if infinitif
 {
     if (type[4] == 'I' && type[5] == 'P' && type[6] == 'r')
     {
@@ -97,7 +97,7 @@ int define_temps(char type[]) // 1 if présent de l’indicatif, 2 if imparfait 
     }
 }
 
-int define_nombre(char type[])// 1 if singulier, 2 if pluriel
+int define_nombre(char type[])// Define the number of the word => 1 if singulier, 2 if pluriel
 {
     if (define_type(type) == 1)
     {
@@ -203,7 +203,7 @@ int define_nombre(char type[])// 1 if singulier, 2 if pluriel
     }
 }
 
-int define_personne(char type[]) // return the personne (either 1st, 2nd or 3rd)
+int define_personne(char type[]) // Define the person of the word => either 1st, 2nd or 3rd
 {
     if (type[13] == '1')
     {
@@ -250,7 +250,7 @@ void type_def(word* A, char type[])
             }
             else
             {
-                if (A->nature == 4)
+                if (A->nature == 4) //ADVERBE
                 {
                     A->genre = 3;
                     A->nombre = 3;
@@ -260,7 +260,7 @@ void type_def(word* A, char type[])
     }
 }
 
-void display_type(word A)//Using the data stored, we display the content inside
+void display_type(word A) //Using the 'word' structure, display the information of the word
 {
     if (A.nature == 1)// NOM
     {
@@ -452,7 +452,7 @@ void display_type(word A)//Using the data stored, we display the content inside
     }
 }
 
-int ctr_calculator(word A)
+int ctr_calculator(word A) //Check if the base_word and the content of the 'word' structure are the same
 {
     int ctr=0;
     int size = strlen(A.content);
