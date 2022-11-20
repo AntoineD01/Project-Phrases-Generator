@@ -10,6 +10,6 @@
 #include <time.h>
 
 void menu(t_tree N, t_tree V, t_tree A, t_tree Av);
-void generator(t_tree N, t_tree V, t_tree A, t_tree Av);
+void generator(t_tree N, t_tree V, t_tree A, t_tree Av, int full);
 int random (int n);
 #endif //TEST_PROJET_GENERATOR_H
